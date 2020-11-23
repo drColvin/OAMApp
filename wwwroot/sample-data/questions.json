@@ -1,0 +1,70 @@
+﻿[
+  {
+    "category": "PreCheck",
+    "question": "Is the capability required for unique, mission or safety-critical functionality?"
+  },
+  {
+    "category": "PreCheck",
+    "question": "Does the capability encompass a unique program protection strategy or crypto technique?"
+  },
+  {
+    "category": "PreCheck",
+    "question": "Does the capability have classified data processing requirement?"
+  },
+  {
+    "category": "PreCheck",
+    "question": "Is the capability utilize proprietary or intellectual property design elements such as interfaces data types or communication buses?"
+  },
+  {
+    "category": "Architecture",
+    "question": "Can the candidate capability be designed using non-proprietary reference models and architectural frameworks?"
+  },
+  {
+    "category": "Architecture",
+    "question": "Can a non-proprietary architectural description language be used to define candidate capability modules and interfaces"
+  },
+  {
+    "category": "Architecture",
+    "question": "Can key interfaces be determined for the candidate capability?"
+  },
+  {
+    "category": "Data Flow",
+    "question": "Does the capability produce any data?"
+  },
+  {
+    "category": "Data Flow",
+    "question": "Does the capability consume any data?"
+  },
+  {
+    "category": "Data Flow",
+    "question": "Does the capability store any data?"
+  },
+  {
+    "category": "Open Standards",
+    "question": "Do open standards exist that can be applied to the key interfaces of the candidate capability?"
+  },
+  {
+    "category": "Open Standards",
+    "question": "Is the amount of candidate capability redesign required to apply open standards to key interfaces acceptable?"
+  },
+  {
+    "category": "Open Standards",
+    "question": "Does applying open standard to key interfaces increase ease of integration into the technical baseline?"
+  },
+  {
+    "category": "Data Flow",
+    "question": "Does the capability consume any data?"
+  },
+  {
+    "category": "Conformance",
+    "question": "Are V&V processes readily available to determine the candidate capability's compliance with the identified open system standards?"
+  },
+  {
+    "category": "Conformance",
+    "question": "Can V&V test resources (lab and tools) be identified to exercise open standard conformance of the candidate capability at the appropriate classification level?"
+  },
+  {
+    "category": "Conformance",
+    "question": "If the candidate is transitioned to open architecture, can system integration and integration and performance testing be conducted at appropriate classification level?"
+  }
+]

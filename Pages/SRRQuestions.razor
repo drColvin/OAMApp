@@ -1,0 +1,110 @@
+﻿
+@page "/SRRQuestions"
+@using System.Reflection.Emit
+@inject HttpClient Http
+
+
+
+<p>Instructions</p>
+
+@if (_questions == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <button class="btn btn-primary" @onclick="CalculateTotal">Submit</button>
+    @if (myTotal >= 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Total</th>
+                    <th>Meaning</th>
+
+                </tr>
+                <tr>
+                    <th>@myTotal</th>
+                    <th><label>This is what it means</label></th>
+
+                </tr>
+            </thead>
+        </table>
+    }
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Question</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @for (int i = 0; i < _questions.Length; i++)
+            {
+                int local = i;
+
+                <tr>
+                    <td>
+                        <select id="$dropdownlist{local}" @bind=@_answerList[local]>
+                            <option value=0>NA</option>
+                            <option value=1>Yes</option>
+                            <option value=2>No</option>
+                            <option value=3>Unsure</option>
+                        </select>
+                    </td>
+                    <td>@_questions[local].Question</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+ @code {
+     public int myTotal = -1;
+     public int runningTotal = 0;
+     private Questions[] _questions;
+     private int[] _answerList = new int[] { 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+
+     protected override async Task OnInitializedAsync()
+     {
+         _questions = await Http.GetFromJsonAsync<Questions[]>("sample-data/questions.json");
+     }
+     //method to calculate the score
+     public void CalculateTotal ()
+     {
+         myTotal = 0;
+         runningTotal = 0;
+         int temp = 0;
+         temp = _answerList.Length;
+         for (int i = 0; i < temp; i++)
+         {
+            // myTotal = myTotal + _answerList[i];
+             switch (_answerList[i])
+             {
+                 case 0:
+                     break;
+                 case 1:
+                     myTotal++;
+                     runningTotal++;
+                     break;
+                 case 2:
+                     runningTotal++;
+                     break;
+                 case 3:
+                     runningTotal++;
+                     break;
+             }
+
+         }
+         
+     }
+
+     public class Questions
+     {
+
+         public string Category { get; set; }
+         public string Question { get; set; }
+     }
+}
+
